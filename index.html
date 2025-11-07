@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚗 ESP8266 Car Controller</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>🚗 WiFi Car Controller</h2>
+    <div class="controls">
+      <button onmousedown="send('B')" onmouseup="send('S')">⬆️</button><br>
+      <button onmousedown="send('R')" onmouseup="send('S')">⬅️</button>
+      <button onmousedown="send('S')" onmouseup="send('S')">⏹️</button>
+      <button onmousedown="send('L')" onmouseup="send('S')">➡️</button><br>
+      <button onmousedown="send('F')" onmouseup="send('S')">⬇️</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
