@@ -17,6 +17,55 @@
       <button onmousedown="send('F')" onmouseup="send('S')">⬇️</button>
     </div>
   </div>
-  <script src="script.js"></script>
+  
+  <script>
+    const NODEMCU_IP = "http://10.208.133.12"; // ganti IP sesuai Serial Monitor
+
+function send(cmd) {
+  fetch(`${NODEMCU_IP}/${cmd}`).catch(err => console.log(err));
+}
+
+  // === Tambahan: kontrol keyboard ===
+  document.addEventListener("keydown", function(e) {
+    switch(e.key.toLowerCase()) {
+      case "w":
+      case "arrowup":
+        send("B"); // Tombol atas (maju)
+        break;
+      case "s":
+      case "arrowdown":
+        send("F"); // Tombol bawah (mundur)
+        break;
+      case "a":
+      case "arrowleft":
+        send("R"); // Kiri
+        break;
+      case "d":
+      case "arrowright":
+        send("L"); // Kanan
+        break;
+      case " ":
+      case "x":
+        send("S"); // Stop (spasi atau X)
+        break;
+    }
+  });
+
+  document.addEventListener("keyup", function(e) {
+    switch(e.key.toLowerCase()) {
+      case "w":
+      case "arrowup":
+      case "s":
+      case "arrowdown":
+      case "a":
+      case "arrowleft":
+      case "d":
+      case "arrowright":
+        send("S"); // Stop saat tombol dilepas
+        break;
+    }
+  });
+
+  </script>
 </body>
 </html>
